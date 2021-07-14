@@ -1,9 +1,9 @@
 #include <amxmodx>
 #include <reapi>
 
-#define PLUGIN "ezbırçımme"
+#define PLUGIN "ezbÃ½rÃ§Ã½mme"
 #define VERSION "1.0"
-#define AUTHOR "bilalgecer"
+#define AUTHOR "BÄ°LÎ›L YILMÎ›Z"
 
 #define TAG "TeamTR"
 
@@ -13,10 +13,10 @@ new bool:stop[MAX_CLIENTS+1];
 
 public plugin_init() {
 	register_plugin(PLUGIN, VERSION, AUTHOR)
-	register_clcmd("say ezbırcıme","anayer")
-	register_clcmd("say ezbırçıme","anayer")
+	register_clcmd("say ezbÃ½rcÃ½me","anayer")
+	register_clcmd("say ezbÃ½rÃ§Ã½me","anayer")
 	register_clcmd("say ezbircime","anayer")
-	register_clcmd("say ezbirçime","anayer")
+	register_clcmd("say ezbirÃ§ime","anayer")
 	
 	RegisterHookChain(RG_CBasePlayer_RoundRespawn,"@rRound",.post=true);
 }
@@ -29,7 +29,7 @@ public plugin_precache(){
 public anayer(id){
 	if(is_user_alive(id) && !stop[id]){
 		stop[id]=true;
-		client_print_color(id, id,  "^4%s ^3Aynen kardeşim ezbırçıme.",TAG);
+		client_print_color(id, id,  "^4%s ^3Aynen kardeÃ¾im ezbÃ½rÃ§Ã½me.",TAG);
 		client_cmd(id,"say /ts3");
 		rg_send_audio(0, anases);
 	}
