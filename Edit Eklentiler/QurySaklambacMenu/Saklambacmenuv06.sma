@@ -42,7 +42,7 @@ new const akmodel[][][]={
 new para[MAX_CLIENTS+1],bool:vipengel[MAX_CLIENTS+1],gorunum[MAX_CLIENTS+1],akswitch[MAX_CLIENTS+1],g_cvars[12];
 
 public plugin_init(){
-	register_plugin("Bos Menu","0.1","bilalgecer47");
+	register_plugin("Bos Menu","0.1","BİLΛL YILMΛZ");
 	
 	new const menuclcmd[][]={
 		"nightvision","say /saklambacmenu","say !saklambacmenu","say .saklambacmenu","say_team /saklambacmenu",
@@ -491,7 +491,7 @@ public client_putinserver(id){
 	len += format(motd[len], 1500-len,"<left><font color=^"green^">=><font color=^"white^"> Saklambac Modumuz Sunucu Sayisina Gore Ebe Secen Bir Modur^n");
 	len += format(motd[len], 1500-len,"<left><font color=^"green^">=><font color=^"white^"> Modumuz Kacmak Degil Saklanmak Lazim [Duvarlara Girilen Gizli Yerler Mevcut]^n");
 	len += format(motd[len], 1500-len,"<left><font color=^"green^">=><font color=^"white^"> Modumuzda TE Scout Bulunmakta Ve Extra Hiz Lutfen Bu Konu Uzerine T De Scotumu Olur Gibi Yazilarla Bulunmayin^n");
-	len += format(motd[len], 1500-len,"<left><font color=^"green^">=><font color=^"white^"> Serverimiz Bol Neseli Bir Sunucudur Zevkini Cikarin �yi Oyunlar. By. QuryWesT^n");
+	len += format(motd[len], 1500-len,"<left><font color=^"green^">=><font color=^"white^"> Serverimiz Bol Neseli Bir Sunucudur Zevkini Cikarin Ýyi Oyunlar. By. QuryWesT^n");
 	show_motd(id, motd, "@modhakkinda");
 	return 0;	
 }
