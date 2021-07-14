@@ -1,0 +1,88 @@
+Log_to_file ile Basit Bir şekilde Serverdeki Yapılan şeyleri loglayacağız.
+
+Kullanimi ;
+log_to_file(const file[], const message[], any:...);
+Örnek Olarak Mg verenleri Loglamak istiyorum.Jbmenumuzdeki MG Verme kısmını buluyoruz.Daha sonra Örnekteki gibi yapıyoruz.
+
+client_print_color(0, 0, "^3[^4%s^3] ^3adli gardiyan ^1[^3%s^1]^4 adli mahkuma^1 %i TL^4 yolladi.",isim,name,miktar);
+log_to_file("Mgverenler-Logu.txt","%s Isimli Gardiyan %s Admli Mahkuma %i Tl Verdi !",isim,name,miktar);
+Serverinizde Banip-Ban-Kick-Gag-Map ve Map Basi Serverdeki Oyuncu Sayisini Loglayacak Eklenti Asagida Verilmistir.
+Gizli İçerik:
+#include <amxmodx>
+
+/* Eklentiyi Plugins.ini'de En uste yaziniz.Yazmaz iseniz Calismaz. */
+/* Eklentide Herhangi bir return kullanmayin kullanirsaniz ban-kick vb. komutlar calismaz. */
+
+public plugin_init() {
+    register_plugin("Eklenti Ismi", "1.0", "bilalgecer47")
+    /* Loglamak Istedigimiz Komutlar */
+    register_concmd("amx_map","@maplogu");
+    register_concmd("amx_ban","@banlogu");
+    register_concmd("amx_banip","@baniplogu");
+    register_concmd("amx_kick","@kicklogu");
+    register_concmd("amx_gag","@gaglogu");    
+}
+/* Map Basi Oyuncu Sayisini Loglama */
+public server_changelevel(map[]){
+    log_to_file("MapBasiOyuncu-Logu.txt", "%i Oyuncu Serverde",get_playersnum());
+}
+/* Map Degistiren Admini Map Ismi Ile Loglama */
+@maplogu(const id){
+    /* Yetki Sorgusu */
+    if(get_user_flags(id) & ADMIN_MAP){
+        
+    new arg[64];
+    read_args(arg, sizeof(arg) - 1);
+    remove_quotes(arg);
+
+    log_to_file("Map-Logu.txt", "%n Isimli Admin %s Mapini Acti !",id,arg);
+    }
+}
+/* Ban Atan Admini Ban Attigi Oyuncu Ile Ile Loglama */
+@banlogu(const id){
+    /* Yetki Sorgusu */
+    if(get_user_flags(id) & ADMIN_BAN){
+        
+    new arg[64];
+    read_args(arg, sizeof(arg) - 1);
+    remove_quotes(arg);
+
+    log_to_file("Ban-Logu.txt", "%n Isimli Admin %s Kisisine Ban Atti",id,arg);
+    }
+}
+/* Banip Atan Admini Banip Attigi Oyuncu Ile Ile Loglama */
+@baniplogu(const id){
+    /* Yetki Sorgusu */
+    if(get_user_flags(id) & ADMIN_BAN){
+        
+    new arg[64];
+    read_args(arg, sizeof(arg) - 1);
+    remove_quotes(arg);
+
+    log_to_file("Banip-Logu.txt", "%n Isimli Admin %s Kisisine Banip Atti",id,arg);
+    }
+}
+/* Kick Atan Admini Kick Attigi Oyuncu Ile Ile Loglama */
+@kicklogu(const id){
+    /* Yetki Sorgusu */
+    if(get_user_flags(id) & ADMIN_KICK){
+        
+    new arg[64];
+    read_args(arg, sizeof(arg) - 1);
+    remove_quotes(arg);
+
+    log_to_file("Kick-Logu.txt", "%n Isimli Admin %s Kisisine Kick Atti",id,arg);
+    }
+}
+/* Gag Atan Admini Gag Attigi Oyuncu Ile Ile Loglama */
+@gaglogu(const id){
+    /* Yetki Sorgusu */
+    if(get_user_flags(id) & ADMIN_RESERVATION){
+        
+    new arg[64];
+    read_args(arg, sizeof(arg) - 1);
+    remove_quotes(arg);
+
+    log_to_file("Gag-Logu.txt", "%n Isimli Admin %s Kisisine Gag Atti",id,arg);
+    }
+}

@@ -1,0 +1,85 @@
+Basit Bir şekilde Jbmenuleri hesap sistemine bağlama.
+
+Gizli İçerik:
+
+#include <amxmodx>
+
+/* Nativelerimiz Simdilik Bukadar Yeterli  */
+
+native nForwardLogin(id);
+native nForwardRegister(id);
+native nGetUidByID(id);
+native nForwardExit(id);
+
+/* Menulerdeki ve saydaki tagimiz  */
+new const tag[] = "Web#Ailesi"
+
+/* Kayit olmadan Devam Etmesi icin Degısken olusturuyoruz */
+new bool:notlogin[33];
+
+public plugin_init() {
+    register_plugin("Hesap-Kayit", "1.0", "bilalgecer47");
+    
+    /* Giris Ve cikis clcmdleri */
+    register_clcmd("say /kayit","@loginmenu");
+    register_clcmd("say /cikis","@cikiyoruz");
+}
+/* Oyuncu servere girince degiskenleri sifirladik.  */
+public client_putinserver(id){
+    notlogin[id]=false;
+}
+/* Ayni sekil cikinca sifirliyoruz  */
+public client_disconnected(id){
+    notlogin[id]=false;
+}
+/* Kayit menumuzu olusturuyoruz Menumuzde Giris-Kayit ve Kayitsiz devam olcak */
+@loginmenu(const id){
+    /* Kontrol Kismi Oyuncu eger giris yaptiysa uidsi 0dan buyuk olcak ve giris kismini tamamlamis olcak. */
+    /* Ayni sekilde kayitsiz devam etmesi icinde notlogin ekledik. */
+    if(nGetUidByID(id) > 0 || notlogin[id]){
+        /* Gereksinimler tamamlandigi icin oyuncu kaydi tamamladi */
+        client_print_color(id,id,"^4%s ^3Basarili Bir Sekilde Kayit Islemini Tamamladiniz.",tag);
+        /* Gereksinimler tamamlandigi icin Jbmenuye girebiliriz */
+        /* @jbanamenumenu(id); tarzinda anamenunuze yonlendiriyorsunuz */
+    }
+    /* Eger Oyuncu kayit olmadiysa ve bu menuye hic girmediyse veya cikis attiysa menuye yonlendirdik */
+    else{
+        /* Kayit menumuzu olusturduk  */
+        new menu = menu_create(fmt("\w(\d-\r%s\d-\w) \y# \wHesap Menu", tag), "@loginmenu_handler");
+        
+        menu_additem(menu, fmt("\w(\d-\r%s\d-\w) \y# \wGiris Yap", tag));
+        menu_additem(menu, fmt("\w(\d-\r%s\d-\w) \y# \wKayit Ol^n", tag));
+        menu_additem(menu, fmt("\w(\d-\r%s\d-\w) \y# \wKayit Olmadan Devam Et", tag));
+        
+        menu_setprop(menu, MPROP_EXITNAME,fmt( "\w(\d-\r%s\d-\w) \y# \wCikis", tag));
+        menu_setprop(menu,MPROP_NUMBER_COLOR,"\d");
+        menu_display(id, menu);
+    }
+    
+}
+@loginmenu_handler(const id, const menu, const item) {
+    if(item == MENU_EXIT) {
+        menu_destroy(menu);
+        return PLUGIN_HANDLED;
+    }
+    switch(item) {
+        /* Oyuncunun Giris Yapmasini saglayan kisim  */
+        case 0:nForwardLogin(id);
+        /* Oyuncunun Kayit Yapmasini saglayan kisim  */
+            case 1:nForwardRegister(id);
+            /* Oyuncunun Kayit ve giris yapmadan devam etmesini saglayan kisim  */
+            case 2: notlogin[id]=true;
+        }
+    menu_destroy(menu);
+    return PLUGIN_HANDLED;
+}
+/* En sonda ise oyuncuya cikis attirma kismi */
+@cikiyoruz(id){
+    /* Forward sayesinde uidsini sifirlayip hesaptan attik */
+    nForwardExit(id);
+    /* Kayit olmadan devam etmesini sifirladik */
+    notlogin[id]=false;
+}
+
+Not : https://www.webailesi.com/konu-api-hesap-sistemi-2248
+İle beraber kullanilir.

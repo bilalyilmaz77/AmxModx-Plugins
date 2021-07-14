@@ -1,0 +1,73 @@
+Basit Bir şekilde Eklentilerinize Yöneticilere özel Para - Jb - Coin - Level verme komutu aşağıda verilmiştir.
+Gizli İçerik:
+#include <amxmodx>
+
+/* Amxmisc kutuphanesi tanimli degilse tanimlamayi unutmayin */
+
+#include <amxmisc>
+
+/* Para veya Coin Verebilcek Yetki */
+
+#define yetki ADMIN_IMMUNITY
+
+/* Jbmenumuzdeki Para veya Coin Birimimiz */
+
+new g_TL[33];
+
+public plugin_init() {
+    register_plugin("Eklenti Ismi", "1.0", "bilalgecer47")
+    
+    /* Para verip almak için gereken komutlar */
+    register_concmd("amx_paraver","@paraver");
+    register_concmd("amx_paraal","@paraal");
+}
+/* Para vermek icin gereken komutlar */
+@paraver(id){
+    /* Parayi veren kisinin yetki dogrulamasini yaptik */
+    if(get_user_flags(id) & yetki){
+        
+        /* Gerekli tanimlar ve kodlar asagidadir g_TL kismini kendi para biriminiz ile degistirin */
+        
+        new kisi[MAX_NAME_LENGTH],packs[10];
+        
+        read_argv(1,kisi,charsmax(kisi));
+        read_argv(2,packs,charsmax(packs));
+        
+        new index = cmd_target(id,kisi,0);
+        if(!is_str_num(packs))
+        {
+            client_print_color(id,id,"^3Sadece ^4Sayi ^3yaziniz !");
+            return PLUGIN_HANDLED;
+        }
+        else{
+            g_TL[index]+= str_to_num(packs);
+            client_print_color(0,0,"^4%n ^3isimli admin ^4%n ^3isimli oyuncudan ^1%i ^3para verdi.",id,index,str_to_num(packs));
+        }
+    }
+    return PLUGIN_HANDLED;
+}
+/* Para Almak icin gereken komutlar */
+@paraal(id){
+    /* Parayi alan kisinin yetki dogrulamasini yaptik */
+    if(get_user_flags(id) & yetki){
+        
+        /* Gerekli tanimlar ve kodlar asagidadir g_TL kismini kendi para biriminiz ile degistirin */
+        
+        new kisi[MAX_NAME_LENGTH],packs[10];
+        
+        read_argv(1,kisi,charsmax(kisi));
+        read_argv(2,packs,charsmax(packs));
+        
+        new index = cmd_target(id,kisi,0);
+        if(!is_str_num(packs))
+        {
+            client_print_color(id,id,"^3Sadece ^4Sayi ^3yaziniz !");
+            return PLUGIN_HANDLED;
+        }
+        else{
+            g_TL[index]-= str_to_num(packs);
+            client_print_color(0,print_team_red,"^4%n ^3isimli admin ^4%n ^3isimli oyuncudan ^1%i ^3para aldi.",id,index,str_to_num(packs));
+        }
+    }
+    return PLUGIN_HANDLED;
+}
