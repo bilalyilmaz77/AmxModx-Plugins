@@ -1,0 +1,3 @@
+Giriş Komutları 
+
+/kisayol - /yardim
