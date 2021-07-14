@@ -14,7 +14,7 @@ Gizli İçerik:
 /* Eklentide Herhangi bir return kullanmayin kullanirsaniz ban-kick vb. komutlar calismaz. */
 
 public plugin_init() {
-    register_plugin("Eklenti Ismi", "1.0", "bilalgecer47")
+    register_plugin("Eklenti Ismi", "1.0", "BİLΛL YILMΛZ")
     /* Loglamak Istedigimiz Komutlar */
     register_concmd("amx_map","@maplogu");
     register_concmd("amx_ban","@banlogu");
