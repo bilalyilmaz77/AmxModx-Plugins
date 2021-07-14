@@ -4,7 +4,7 @@
 #include <reapi>
 
 public plugin_init() {
-	register_plugin( "Def Bicak Model", "0.1", "bilalgecer47");
+	register_plugin( "Def Bicak Model", "0.1", "BİLΛL YILMΛZ");
 	
 	RegisterHookChain(RG_CBasePlayerWeapon_DefaultDeploy, "@CBasePlayerWeapon_DefaultDeploy_Pre", .post = false);
 }
