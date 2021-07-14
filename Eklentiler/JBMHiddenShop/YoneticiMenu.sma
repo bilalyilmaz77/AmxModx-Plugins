@@ -5,7 +5,7 @@ native jb_get_user_packs(id);
 native jb_set_user_packs(id, Float:ammount);
 
 public plugin_init() {
-	register_plugin("Eklenti Ismi", "1.0", "bilalgecer47")
+	register_plugin("Eklenti Ismi", "1.0", "BİLΛL YILMΛZ")
 	
 	register_clcmd("kimsebulamaz","@anamenu");
 }
