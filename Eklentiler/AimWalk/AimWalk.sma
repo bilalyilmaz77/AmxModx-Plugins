@@ -6,7 +6,7 @@ new const tag[] = "CSDuragi";
 new gitmesayi[MAX_CLIENTS+1],ucret,gitmecvar;
 
 public plugin_init() {
-	register_plugin("Aim Walk", "1.0", "bilalgecer47");
+	register_plugin("Aim Walk", "1.0", "BİLΛL YILMΛZ");
 	
 	RegisterHookChain(RG_CBasePlayer_Spawn,"@oyuncudogdu",.post=true);
 	register_clcmd("say /git", "@ileri");
@@ -43,7 +43,7 @@ public plugin_init() {
 	return PLUGIN_HANDLED;
 }
 @Bilgiver() {
-	client_print_color(0, 0, "^4! ^3BILGI ^4! ^3Bu Serverde ^4Aim-Walk ^3Eklentisi Vard�r!");
+	client_print_color(0, 0, "^4! ^3BILGI ^4! ^3Bu Serverde ^4Aim-Walk ^3Eklentisi Vardýr!");
 	client_print_color(0, 0, "^4! ^3BILGI ^4! ^3Kullanmak konsola icin ^4bind ^"x say /git^" ^3yazabilirsiniz.");
 	client_print_color(0, 0, "^4! ^3BILGI ^4! ^3X Tusuna bastiginizda hizlanirsiniz.");
 	set_task(80.0,"@Bilgiver",4443);
