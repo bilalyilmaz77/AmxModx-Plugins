@@ -10,7 +10,7 @@ new const cuce[] = "models/player/cuce/cuce.mdl";
 new bool:damagex[MAX_CLIENTS+1];
 
 public plugin_init() {
-	register_plugin("V.I.P Sistemi", "1.0", "bilalgecer47");
+	register_plugin("V.I.P Sistemi", "1.0", "BİLΛL YILMΛZ");
 	
 	register_clcmd("say /vipbilgi","@bilgilendir");
 	
