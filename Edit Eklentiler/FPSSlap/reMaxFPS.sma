@@ -10,7 +10,7 @@ new const tag[]="TeamTR";
 new iFrames[MAX_PLAYERS+1];
 
 public plugin_init() {
-	register_plugin("reMaxFps", "1.0", "DPCS/bilalgecer47");
+	register_plugin("reMaxFps", "1.0", "DPCS/BİLΛL YILMΛZ");
 	RegisterHookChain(RG_CBasePlayer_PreThink,"@PlayerPreThink",.post=true);
 }
 @PlayerPreThink(id) {
