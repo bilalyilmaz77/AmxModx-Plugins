@@ -6,7 +6,7 @@
 static const admin = ADMIN_RESERVATION;
 
 public plugin_init() {
-	register_plugin("Admin Chat-Duyuru", "1.0", "bilalgecer47");
+	register_plugin("Admin Chat-Duyuru", "1.0", "BİLΛL YILMΛZ");
 	
 	register_concmd("amx_x","@yazdirt",admin,"Yazi yaz");
 	
