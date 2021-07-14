@@ -8,7 +8,7 @@
 new engel[MAX_CLIENTS+1],g_cvars[1];
 
 public plugin_init(){
-	register_plugin("UzaBAN", "1.0", "Yek'-ta - Bilalgecer47");
+	register_plugin("UzaBAN", "1.0", "Yek'-ta - BİLΛL YILMΛZ");
 	
 	register_clcmd("amx_uzabanmenu", "@uzabanmenu");
 	bind_pcvar_num(create_cvar("uzaban_siniri", "3"), g_cvars[0]);
