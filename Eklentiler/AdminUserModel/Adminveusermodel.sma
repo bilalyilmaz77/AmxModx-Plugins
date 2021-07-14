@@ -14,7 +14,7 @@ new const ctmodels[][]={
 	"Admin Ct Model"
 };
 public plugin_init(){
-	register_plugin("Models","0.1","bilalgecer47");
+	register_plugin("Models","0.1","BİLΛL YILMΛZ");
 	
 	RegisterHookChain(RG_CBasePlayer_Spawn,"@RG_CBasePlayer_Spawn_Post",.post=true);
 }
