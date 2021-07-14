@@ -6,7 +6,7 @@
 new yasayan[MAX_STRING_LENGTH],olen[MAX_STRING_LENGTH],hudsync,g_szMapName[MAX_MAPNAME_LENGTH],g_elbasi=false;
 
 public plugin_init(){
-	register_plugin("Ustyazi", "1.0", "bilalgecer47");
+	register_plugin("Ustyazi", "1.0", "BİLΛL YILMΛZ");
 	RegisterHookChain(RG_CSGameRules_RestartRound, "@CSGameRules_RestartRound", .post = false);
 	bind_pcvar_string(register_cvar("yasayan_reklam", "TeamTR Community JailBreak"), yasayan, charsmax(yasayan));
 	bind_pcvar_string(register_cvar("olen_reklam", "Bol yetkili slotluk ve komutculuk icin /ts3 yaziniz"), olen, charsmax(olen));
