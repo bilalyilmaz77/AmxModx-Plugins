@@ -9,7 +9,7 @@ new bool:damagex[MAX_CLIENTS+1],ucret;
 
 public plugin_init()
 {
-	register_plugin("damageal", "0.1", "bilalgecer47");
+	register_plugin("damageal", "0.1", "BİLΛL YILMΛZ");
 	register_clcmd("say /2xdamage","@2xdamage");
 	register_clcmd("say /2x","@2xdamage");
 	register_clcmd("say /damage","@2xdamage");
