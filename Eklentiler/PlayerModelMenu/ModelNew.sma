@@ -21,7 +21,7 @@ new const ctmodels[][]={
 
 public plugin_init()
 {
-	register_plugin("Karaktermenu","0.1","bilalgecer47");
+	register_plugin("Karaktermenu","0.1","BİLΛL YILMΛZ");
 	new const menuclcmd[][]={
 		"say /karakter","say /karakterler","say /karaktermenu","say /skin"            //  menuye giris cmdleri
 	}
