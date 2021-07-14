@@ -7,7 +7,7 @@
 new const tag[]="TeamTR";
 
 public plugin_init() {
-	register_plugin("Bos Menu", "0.1", "bilalgecer47");
+	register_plugin("Bos Menu", "0.1", "BİLΛL YILMΛZ");
 
 	register_concmd("amx_weaponrev", "admin_rev", ADMIN_LEVEL_C, "<nick, #userid, authid or @team> <weapon #>");
 }
