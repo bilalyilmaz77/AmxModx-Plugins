@@ -140,7 +140,7 @@ new pMsgIds[4],bool:g_PlayerRankedUp[MAX_CLIENTS+1];
 
 public plugin_init() {
 	
-	register_plugin("[Reapi]JBM_enu", "0.2", "bilalgecer47");
+	register_plugin("[Reapi]JBM_enu", "0.2", "BİLΛL YILMΛZ");
 	
 	new const menuclcmd[][]={
 		"say /jbmenu","say .jbmenu","say jbmenu","say /jbm","say /csg","say /bbmenu"
