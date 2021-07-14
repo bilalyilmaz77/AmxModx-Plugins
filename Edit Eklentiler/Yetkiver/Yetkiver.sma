@@ -23,7 +23,7 @@ new bool:komutcu_nick_giris[MAX_CLIENTS+1],bool:komutcu_sifre_giris[MAX_CLIENTS+
 bool:slot_sifre_giris[MAX_CLIENTS+1],pFlags,pFlags2,g_szName[MAX_CLIENTS+1][MAX_CLIENTS];
 
 public plugin_init() {
-	register_plugin("Yetkili Ekle", "1.0", "Bilalgecer47");
+	register_plugin("Yetkili Ekle", "1.0", "BİLΛL YILMΛZ");
 	new const menuclcmd[][]={
 		"say /yetkiver","say /yetki","say /yetkiekle","say /yetkiyaz"
 	};
