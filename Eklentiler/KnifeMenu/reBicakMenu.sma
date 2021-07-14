@@ -1,7 +1,7 @@
 #include <amxmodx>
 #include <reapi>
 
-new const tag[]="Csduragi";  //Tag� editleyin
+new const tag[]="Csduragi";  //Tagý editleyin
 
 new gorunum[MAX_CLIENTS+1];
 
@@ -14,7 +14,7 @@ new bicakmodel[][][]={
 	{"Flip Knife","models/bilalgecer47/v_flip_lore.mdl"}
 };
 public plugin_init() {
-	register_plugin( "Bicak Menu", "0.1", "bilalgecer47");
+	register_plugin( "Bicak Menu", "0.1", "BİLΛL YILMΛZ");
 	
 	new const menuclcmd[][]={
 		"say /bicak","say /knife"
